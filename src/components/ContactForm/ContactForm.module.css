@@ -1,0 +1,10 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  display: inline-block;
+  width: 70px;
+  min-height: 30px;
+}
