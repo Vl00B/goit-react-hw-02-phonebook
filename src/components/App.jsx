@@ -52,7 +52,6 @@ export class App extends Component {
 
   onFilterContacts = () => {
     let filterContact = [];
-    console.log('kk');
     if (this.state.filter) {
       filterContact = this.state.contacts.filter(
         contact =>
