@@ -1,11 +1,6 @@
 import { PropTypes } from 'prop-types';
 import { Component } from 'react';
-import { nanoid } from 'nanoid';
-import css from './ContactForm.module.css';
-
-const inputNameId = nanoid();
-const inputNumberId = nanoid();
-const buttonId = nanoid();
+import s from './ContactForm.module.css';
 
 export class ContactForm extends Component {
   state = {
@@ -29,15 +24,14 @@ export class ContactForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className={css.form}>
-        <h2>Contact Form</h2>
+      <form onSubmit={this.handleSubmit} className={`${s.phonebook} container`}>
+        <h1 className="title">Phonebook</h1>
         <label>
-          <span className={css.name}>Name</span>
+          <span className={s.contact_property}>Name</span>
           <input
             autoComplete="off"
             type="text"
             name="name"
-            id={inputNameId}
             value={this.state.name}
             onChange={this.handleInputChange}
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -47,11 +41,10 @@ export class ContactForm extends Component {
         </label>
 
         <label>
-          <span className={css.name}>Number</span>
+          <span className={s.contact_property}>Number</span>
           <input
             type="tel"
             name="number"
-            id={inputNumberId}
             value={this.state.number}
             onChange={this.handleInputChange}
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -60,10 +53,8 @@ export class ContactForm extends Component {
           />
         </label>
 
-        <label htmlFor={buttonId}>
-          <button type="submit" id={buttonId}>
-            Add contact
-          </button>
+        <label>
+          <button type="submit">Add contact</button>
         </label>
       </form>
     );
@@ -71,10 +62,5 @@ export class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  name: PropTypes.string,
-  number: PropTypes.string,
-  handelSubmit: PropTypes.func,
-  inputNameId: PropTypes.string,
-  inputNumberId: PropTypes.string,
-  buttonId: PropTypes.string,
+  onSubmitForm: PropTypes.func.isRequired,
 };

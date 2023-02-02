@@ -1,10 +1,10 @@
-.form {
+.phonebook {
   display: flex;
   flex-direction: column;
 }
 
-.name {
+.contact_property {
   display: inline-block;
-  width: 70px;
+  width: 80px;
   min-height: 30px;
 }

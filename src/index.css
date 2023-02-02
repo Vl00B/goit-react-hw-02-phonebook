@@ -1,4 +1,8 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+
+:root {
+  --btn-color: rgb(32, 109, 224);
+}
 
 body {
   margin: 0;
@@ -14,19 +18,34 @@ code {
     monospace;
 }
 
-.list {
-  display: inline-block;
-  margin-top: 10px;
-  border: 1px solid black;
-}
-
-.list ul {
-  list-style: none;
-  padding: 2px;
-}
-
-.element p {
-  padding: 0;
+ul,
+ol {
   margin: 0;
-  display: inline-block;
+  padding: 0;
+  list-style: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.container {
+  padding: 15px;
+}
+
+.title {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: var(--btn-color);
+  border-width: 0px;
+  border-radius: 4px;
+  min-height: 20px;
 }
