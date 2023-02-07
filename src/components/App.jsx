@@ -7,10 +7,10 @@ import { nanoid } from 'nanoid';
 export class App extends Component {
   state = {
     contacts: [
-      { name: 'Rosie Simpson', number: '459-12-56', id: nanoid() },
-      { name: 'Hermione Kline', number: '443-89-12', id: nanoid() },
-      { name: 'Eden Clements', number: '645-17-79', id: nanoid() },
-      { name: 'Annie Copeland', number: '227-91-26', id: nanoid() },
+      // { name: 'Rosie Simpson', number: '459-12-56', id: nanoid() },
+      // { name: 'Hermione Kline', number: '443-89-12', id: nanoid() },
+      // { name: 'Eden Clements', number: '645-17-79', id: nanoid() },
+      // { name: 'Annie Copeland', number: '227-91-26', id: nanoid() },
     ],
     filter: '',
   };
@@ -69,16 +69,22 @@ export class App extends Component {
       <>
         <ContactForm onSubmitForm={this.toAddContact} />
 
-        <ContactsList
-          contacts={this.onFilter()}
-          children={
-            <Filter
-              toFilterContacts={this.toFilter}
-              filter={this.state.filter}
-            />
-          }
-          deleteContact={this.toRemoveContact}
-        />
+        {this.state.contacts.length ? (
+          <ContactsList
+            contacts={this.onFilter()}
+            children={
+              <Filter
+                toFilterContacts={this.toFilter}
+                filter={this.state.filter}
+              />
+            }
+            deleteContact={this.toRemoveContact}
+          />
+        ) : (
+          <div className="container">
+            <h2>There are no contacts yet.</h2>
+          </div>
+        )}
       </>
     );
   }
