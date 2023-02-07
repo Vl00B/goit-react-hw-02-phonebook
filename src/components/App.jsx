@@ -22,14 +22,15 @@ export class App extends Component {
       id: nanoid(),
     };
 
-    for (const contact of this.state.contacts) {
-      if (
-        contact.name.toLowerCase().trim() ===
+    const found = this.state.contacts.find(
+      element =>
+        element.name.toLowerCase().trim() ===
         newContact.name.toLowerCase().trim()
-      ) {
-        alert('There is already contact with this name.');
-        return;
-      }
+    );
+
+    if (found) {
+      alert('There is already contact with this name.');
+      return;
     }
 
     this.setState(prevState => ({

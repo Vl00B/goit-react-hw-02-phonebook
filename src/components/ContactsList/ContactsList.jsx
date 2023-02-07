@@ -38,7 +38,7 @@ export class ContactsList extends Component {
 }
 
 ContactsList.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string)).isRequired,
   deleteContact: PropTypes.func.isRequired,
   children: PropTypes.node,
 };
